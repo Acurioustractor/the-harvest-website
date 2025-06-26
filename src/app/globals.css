@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Source+Sans+Pro:wght@300;400;600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-cream text-stone;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+
+  ::selection {
+    @apply bg-sage-gray text-white;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .tab-button {
+    @apply relative px-6 py-3 font-sans text-base font-light text-stone/70 transition-all duration-300 hover:text-heritage-green;
+  }
+
+  .tab-button.active {
+    @apply text-heritage-green font-normal;
+  }
+
+  .tab-button.active::after {
+    content: '';
+    @apply absolute bottom-0 left-0 right-0 h-0.5 bg-heritage-green;
+  }
+
+  .section-padding {
+    @apply py-20 sm:py-32;
+  }
+
+  .hero-text {
+    @apply text-4xl sm:text-5xl lg:text-6xl font-serif font-light leading-tight;
+  }
+
+  .subheading {
+    @apply text-xl sm:text-2xl font-sans font-light text-stone/80;
+  }
+}
+
+@media print {
+  /* Hide navigation and non-essential elements */
+  header, footer, .tab-button, button {
+    display: none !important;
+  }
+  
+  /* Reset backgrounds for print */
+  body, main, section {
+    background: white !important;
+    color: black !important;
+  }
+  
+  /* Improve text contrast */
+  .text-stone\/70, .text-stone\/80, .text-stone\/60 {
+    color: #333 !important;
+  }
+  
+  .text-heritage-green {
+    color: #2d3a1a !important;
+  }
+  
+  /* Remove shadows and borders for cleaner print */
+  .shadow-sm {
+    box-shadow: none !important;
+  }
+  
+  /* Page breaks */
+  section {
+    page-break-inside: avoid;
+  }
+  
+  h1, h2, h3 {
+    page-break-after: avoid;
+  }
+  
+  /* Show URLs for links */
+  a[href^="http"]:after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    font-weight: normal;
+  }
+  
+  a[href^="tel"]:after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    font-weight: normal;
+  }
+  
+  /* Ensure images print */
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+  
+  /* Better spacing for print */
+  .container-custom {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+  
+  /* Print-friendly font sizes */
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+  
+  h1 { font-size: 24pt; }
+  h2 { font-size: 18pt; }
+  h3 { font-size: 14pt; }
+}
