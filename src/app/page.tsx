@@ -1,454 +1,629 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import TabNavigation, { Tab } from '@/components/TabNavigation'
-
-const TherapeuticGardens = () => (
-  <div className="section-padding">
-    <div className="container-custom">
-      <div className="max-w-3xl mx-auto text-center">
-        <h2 className="text-3xl sm:text-4xl font-serif font-light mb-6 text-heritage-green">
-          Therapeutic Gardens
-        </h2>
-        <p className="subheading mb-12">
-          Healing soil, healing souls. Evidence-based horticultural therapy programs designed 
-          with healthcare partners.
-        </p>
-      </div>
-      
-      <div className="grid md:grid-cols-2 gap-12 mt-16">
-        <div className="space-y-4">
-          <h3 className="text-xl font-serif text-heritage-green">Programs Offered</h3>
-          <ul className="space-y-3 text-stone/80">
-            <li>• Individual therapeutic sessions</li>
-            <li>• Group wellness programs</li>
-            <li>• Disability support services</li>
-            <li>• Mental health recovery gardens</li>
-            <li>• Aged care engagement</li>
-          </ul>
-        </div>
-        <div className="space-y-4">
-          <h3 className="text-xl font-serif text-heritage-green">Our Approach</h3>
-          <p className="text-stone/80">
-            Working with Cath Manuel from Soil to Supper, we create personalized programs 
-            that connect participants with nature's rhythms. Our accessible garden spaces 
-            and adaptive tools ensure everyone can experience the joy of growing.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-)
-
-const CommunityHub = () => (
-  <div className="section-padding">
-    <div className="container-custom">
-      <div className="max-w-3xl mx-auto text-center">
-        <h2 className="text-3xl sm:text-4xl font-serif font-light mb-6 text-heritage-green">
-          Community Hub
-        </h2>
-        <p className="subheading mb-12">
-          A gathering place where community decisions happen over shared meals and 
-          seasonal celebrations connect neighbors.
-        </p>
-      </div>
-      
-      <div className="grid md:grid-cols-3 gap-8 mt-16">
-        <div className="text-center">
-          <div className="w-16 h-16 border-2 border-sage-gray/20 rounded-full mx-auto mb-4" />
-          <h3 className="font-serif text-lg mb-2">Event Space</h3>
-          <p className="text-sm text-stone/70">
-            Flexible venue for workshops, celebrations, and community gatherings
-          </p>
-        </div>
-        <div className="text-center">
-          <div className="w-16 h-16 border-2 border-sage-gray/20 rounded-full mx-auto mb-4" />
-          <h3 className="font-serif text-lg mb-2">Commercial Kitchen</h3>
-          <p className="text-sm text-stone/70">
-            Professional facility for food production, training, and events
-          </p>
-        </div>
-        <div className="text-center">
-          <div className="w-16 h-16 border-2 border-sage-gray/20 rounded-full mx-auto mb-4" />
-          <h3 className="font-serif text-lg mb-2">Learning Center</h3>
-          <p className="text-sm text-stone/70">
-            Workshops on regenerative agriculture, traditional skills, and slow living
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-)
-
-const FarmStayTourism = () => (
-  <div className="section-padding">
-    <div className="container-custom">
-      <div className="max-w-3xl mx-auto text-center">
-        <h2 className="text-3xl sm:text-4xl font-serif font-light mb-6 text-heritage-green">
-          Farm Stay & Tourism
-        </h2>
-        <p className="subheading mb-12">
-          Authentic agritourism experiences where visitors participate in farm life, 
-          not just observe it.
-        </p>
-      </div>
-      
-      <div className="grid md:grid-cols-2 gap-12 mt-16">
-        <div>
-          <h3 className="text-xl font-serif text-heritage-green mb-4">Accommodation</h3>
-          <p className="text-stone/80 mb-4">
-            Four sustainable cabins designed for accessibility and comfort, offering 
-            valley views and connection to nature. Each cabin features solar power, 
-            rainwater systems, and private outdoor spaces.
-          </p>
-          <ul className="space-y-2 text-sm text-stone/70">
-            <li>• 2 fully accessible cabins</li>
-            <li>• Self-contained facilities</li>
-            <li>• Sustainable systems</li>
-          </ul>
-        </div>
-        <div>
-          <h3 className="text-xl font-serif text-heritage-green mb-4">Experiences</h3>
-          <p className="text-stone/80 mb-4">
-            Hands-on participation in daily farm activities, seasonal harvests, and 
-            traditional skills workshops. Learn regenerative agriculture practices 
-            while contributing to the working farm.
-          </p>
-          <ul className="space-y-2 text-sm text-stone/70">
-            <li>• Morning farm tours</li>
-            <li>• Harvest participation</li>
-            <li>• Traditional craft workshops</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-)
-
-const TrainingPrograms = () => (
-  <div className="section-padding">
-    <div className="container-custom">
-      <div className="max-w-3xl mx-auto text-center">
-        <h2 className="text-3xl sm:text-4xl font-serif font-light mb-6 text-heritage-green">
-          Training & Education
-        </h2>
-        <p className="subheading mb-12">
-          Building skills and confidence through practical learning in hospitality, 
-          agriculture, and traditional crafts.
-        </p>
-      </div>
-      
-      <div className="space-y-8 mt-16 max-w-4xl mx-auto">
-        <div className="bg-cream border border-stone/10 rounded-lg p-8">
-          <h3 className="text-xl font-serif text-heritage-green mb-3">Hospitality Training</h3>
-          <p className="text-stone/80 mb-4">
-            Real-world experience in our commercial kitchen and event spaces, preparing 
-            participants for careers in food service and tourism.
-          </p>
-          <div className="flex flex-wrap gap-3 text-sm">
-            <span className="px-3 py-1 bg-sage-gray/20 rounded-full">Food Safety Certification</span>
-            <span className="px-3 py-1 bg-sage-gray/20 rounded-full">Event Management</span>
-            <span className="px-3 py-1 bg-sage-gray/20 rounded-full">Farm-to-Table Service</span>
-          </div>
-        </div>
-        
-        <div className="bg-cream border border-stone/10 rounded-lg p-8">
-          <h3 className="text-xl font-serif text-heritage-green mb-3">Agricultural Skills</h3>
-          <p className="text-stone/80 mb-4">
-            Learn regenerative farming practices, organic growing methods, and sustainable 
-            land management through hands-on experience.
-          </p>
-          <div className="flex flex-wrap gap-3 text-sm">
-            <span className="px-3 py-1 bg-sage-gray/20 rounded-full">Organic Production</span>
-            <span className="px-3 py-1 bg-sage-gray/20 rounded-full">Soil Health</span>
-            <span className="px-3 py-1 bg-sage-gray/20 rounded-full">Market Gardening</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-)
-
-const FoodProduction = () => (
-  <div className="section-padding">
-    <div className="container-custom">
-      <div className="max-w-3xl mx-auto text-center">
-        <h2 className="text-3xl sm:text-4xl font-serif font-light mb-6 text-heritage-green">
-          Food Production
-        </h2>
-        <p className="subheading mb-12">
-          31 years of organic legacy continues with regenerative practices that 
-          nurture soil, community, and local food systems.
-        </p>
-      </div>
-      
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
-        <div>
-          <h3 className="font-serif text-lg mb-3">Market Gardens</h3>
-          <p className="text-stone/80 text-sm">
-            Seasonal produce grown using organic and regenerative methods, 
-            supplying local markets and our kitchen.
-          </p>
-        </div>
-        <div>
-          <h3 className="font-serif text-lg mb-3">Heritage Varieties</h3>
-          <p className="text-stone/80 text-sm">
-            Preserving rare and heritage plant varieties, maintaining genetic 
-            diversity and cultural food traditions.
-          </p>
-        </div>
-        <div>
-          <h3 className="font-serif text-lg mb-3">Value-Added Products</h3>
-          <p className="text-stone/80 text-sm">
-            Seasonal preserves, ferments, and prepared foods created in our 
-            commercial kitchen from farm produce.
-          </p>
-        </div>
-      </div>
-      
-      <div className="mt-16 p-8 bg-warm-soil/5 rounded-lg">
-        <p className="text-center text-stone/80 italic">
-          "Building on Green Harvest's foundation, we demonstrate that regenerative 
-          agriculture can be both ecologically sound and economically viable."
-        </p>
-      </div>
-    </div>
-  </div>
-)
-
-const tabs: Tab[] = [
-  {
-    id: 'therapeutic',
-    label: 'Therapeutic Gardens',
-    content: <TherapeuticGardens />
-  },
-  {
-    id: 'community',
-    label: 'Community Hub',
-    content: <CommunityHub />
-  },
-  {
-    id: 'tourism',
-    label: 'Farm Stay',
-    content: <FarmStayTourism />
-  },
-  {
-    id: 'training',
-    label: 'Training',
-    content: <TrainingPrograms />
-  },
-  {
-    id: 'food',
-    label: 'Food Production',
-    content: <FoodProduction />
-  }
-]
+import { useState } from 'react'
 
 export default function Home() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    interest: 'Volunteering',
+    message: ''
+  })
+  const [showSuccess, setShowSuccess] = useState(false)
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    setShowSuccess(true)
+    setFormData({ name: '', email: '', interest: 'Volunteering', message: '' })
+    // Scroll to success message
+    setTimeout(() => {
+      const successElement = document.getElementById('success-message')
+      if (successElement) {
+        successElement.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      }
+    }, 100)
+  }
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    })
+  }
+
   return (
-    <main className="min-h-screen bg-cream">
-      {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-cream via-cream/95 to-cream/90" />
+    <main className="min-h-screen" style={{ 
+      fontFamily: "'Crimson Text', serif",
+      lineHeight: '1.6',
+      color: '#2D2D2D',
+      backgroundColor: '#F7F4F0',
+      backgroundImage: 'radial-gradient(circle at 20% 30%, rgba(139, 69, 19, 0.03) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(74, 93, 35, 0.03) 0%, transparent 50%)'
+    }}>
+      <style jsx global>{`
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Crimson+Pro:wght@200;300;400;500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap');
         
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: 'easeOut' }}
-          className="relative z-10 text-center px-4"
-        >
-          <h1 className="hero-text text-heritage-green mb-6">
-            The Harvest
-          </h1>
-          <p className="subheading max-w-2xl mx-auto mb-2">
-            Where time slows, roots deepen, and community grows
-          </p>
-          <p className="text-sm text-stone/60 font-light">
-            Witta • Slow Living • Deep Roots
-          </p>
-        </motion.div>
+        :root {
+          --vintage-green: #3A4D1C;
+          --warm-brown: #8B5A3C;
+          --parchment: #F7F4F0;
+          --sage-muted: #6B7C5A;
+          --dusty-gold: #B8945A;
+        }
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 2, delay: 0.5 }}
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
-        >
-          <div className="w-0.5 h-16 bg-stone/20 animate-pulse" />
-        </motion.div>
-      </section>
+        body {
+          background-color: #F7F4F0;
+        }
 
-      {/* Introduction */}
-      <section className="section-padding bg-white/50">
-        <div className="container-custom">
-          <div className="max-w-4xl mx-auto text-center">
-            <motion.p 
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1 }}
-              className="text-lg sm:text-xl text-stone/80 leading-relaxed"
-            >
-              The Harvest transforms the former Green Harvest site into Queensland's 
-              premier regenerative agriculture destination. A place where therapeutic 
-              horticulture meets social enterprise, creating meaningful work for 
-              marginalized communities while preserving 31 years of organic legacy.
-            </motion.p>
-          </div>
-        </div>
-      </section>
+        .botanical-border {
+          position: relative;
+        }
 
-      {/* Key Features */}
-      <section className="section-padding">
-        <div className="container-custom">
-          <div className="grid md:grid-cols-3 gap-8">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center"
-            >
-              <div className="w-20 h-20 border-2 border-sage-gray/20 rounded-full mx-auto mb-6" />
-              <h3 className="font-serif text-xl text-heritage-green mb-3">
-                Therapeutic Impact
-              </h3>
-              <p className="text-stone/70">
-                Professional horticultural therapy programs supporting mental health, 
-                disability, and aged care communities
-              </p>
-            </motion.div>
+        .botanical-border::before {
+          content: '';
+          position: absolute;
+          top: -10px;
+          left: -10px;
+          right: -10px;
+          bottom: -10px;
+          border: 2px solid #8B5A3C;
+          border-radius: 15px;
+          opacity: 0.3;
+          z-index: 0;
+        }
 
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="text-center"
-            >
-              <div className="w-20 h-20 border-2 border-sage-gray/20 rounded-full mx-auto mb-6" />
-              <h3 className="font-serif text-xl text-heritage-green mb-3">
-                Community Owned
-              </h3>
-              <p className="text-stone/70">
-                Democratically governed by and for the Witta community, ensuring 
-                local benefit and authentic participation
-              </p>
-            </motion.div>
+        .botanical-border::after {
+          content: '• ❦ •';
+          position: absolute;
+          top: -15px;
+          left: 50%;
+          transform: translateX(-50%);
+          background: #F7F4F0;
+          padding: 0 15px;
+          font-size: 14px;
+          color: #8B5A3C;
+          z-index: 1;
+        }
 
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="text-center"
-            >
-              <div className="w-20 h-20 border-2 border-sage-gray/20 rounded-full mx-auto mb-6" />
-              <h3 className="font-serif text-xl text-heritage-green mb-3">
-                Regenerative Agriculture
-              </h3>
-              <p className="text-stone/70">
-                Demonstrating sustainable farming that heals soil and community 
-                while creating economic opportunity
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+        .vintage-card {
+          background: linear-gradient(145deg, #FAF8F5 0%, #F5F1EB 100%);
+          border: 1px solid #D4C4A8;
+          border-radius: 12px;
+          box-shadow: 
+            0 4px 12px rgba(139, 90, 60, 0.08),
+            inset 0 1px 0 rgba(255, 255, 255, 0.9);
+          position: relative;
+        }
 
-      {/* Service Areas Tabs */}
-      <section id="programs" className="bg-white">
-        <div className="py-12 sm:py-16 border-b border-stone/10">
-          <div className="container-custom text-center">
-            <h2 className="text-2xl sm:text-3xl font-serif text-heritage-green mb-4">
-              Our Programs
-            </h2>
-            <p className="text-stone/70 max-w-2xl mx-auto">
-              Five interconnected areas working together to create a thriving community hub
+        .vintage-card::before {
+          content: '';
+          position: absolute;
+          top: 8px;
+          left: 8px;
+          right: 8px;
+          bottom: 8px;
+          border: 1px solid #E8DCC6;
+          border-radius: 8px;
+          pointer-events: none;
+        }
+
+        .hand-drawn-line {
+          height: 2px;
+          background: linear-gradient(90deg, transparent 0%, #8B5A3C 10%, #8B5A3C 90%, transparent 100%);
+          border-radius: 1px;
+          opacity: 0.4;
+          margin: 20px auto;
+        }
+
+        .aged-paper {
+          background: 
+            radial-gradient(circle at 100% 50%, transparent 20%, rgba(139, 69, 19, 0.02) 21%, rgba(139, 69, 19, 0.02) 34%, transparent 35%, transparent),
+            linear-gradient(0deg, rgba(139, 69, 19, 0.01) 50%, transparent 50%);
+        }
+      `}</style>
+
+      {/* Main Container with Vintage Frame */}
+      <div style={{ 
+        maxWidth: '900px', 
+        margin: '40px auto', 
+        padding: '0 20px' 
+      }}>
+        <div className="vintage-card aged-paper" style={{ 
+          padding: '60px 50px',
+          position: 'relative'
+        }}>
+          {/* Decorative corners */}
+          <div style={{
+            position: 'absolute',
+            top: '15px',
+            left: '15px',
+            width: '30px',
+            height: '30px',
+            border: '2px solid #8B5A3C',
+            borderRight: 'none',
+            borderBottom: 'none',
+            opacity: 0.3
+          }} />
+          <div style={{
+            position: 'absolute',
+            top: '15px',
+            right: '15px',
+            width: '30px',
+            height: '30px',
+            border: '2px solid #8B5A3C',
+            borderLeft: 'none',
+            borderBottom: 'none',
+            opacity: 0.3
+          }} />
+          <div style={{
+            position: 'absolute',
+            bottom: '15px',
+            left: '15px',
+            width: '30px',
+            height: '30px',
+            border: '2px solid #8B5A3C',
+            borderRight: 'none',
+            borderTop: 'none',
+            opacity: 0.3
+          }} />
+          <div style={{
+            position: 'absolute',
+            bottom: '15px',
+            right: '15px',
+            width: '30px',
+            height: '30px',
+            border: '2px solid #8B5A3C',
+            borderLeft: 'none',
+            borderTop: 'none',
+            opacity: 0.3
+          }} />
+
+          {/* Header Text */}
+          <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+            <p style={{
+              fontSize: '0.9rem',
+              color: '#8B5A3C',
+              textTransform: 'uppercase',
+              letterSpacing: '2px',
+              marginBottom: '20px',
+              fontWeight: 400
+            }}>
+              We are transforming the beloved "Green Harvest" site into
+            </p>
+            <h1 style={{
+              fontFamily: "'EB Garamond', serif",
+              fontSize: '4rem',
+              fontWeight: 500,
+              color: '#3A4D1C',
+              marginBottom: '15px',
+              lineHeight: '1.1',
+              textAlign: 'center'
+            }}>
+              The Harvest
+            </h1>
+            <p style={{
+              fontFamily: "'Crimson Text', serif",
+              fontStyle: 'italic',
+              fontSize: '1.4rem',
+              color: '#6B7C5A',
+              marginBottom: '30px'
+            }}>
+              Where time slows, roots deepen<br />and community grows.
             </p>
           </div>
-        </div>
-        <TabNavigation tabs={tabs} />
-      </section>
 
-      {/* Call to Action */}
-      <section className="section-padding bg-cream">
-        <div className="container-custom">
-          <div className="max-w-2xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <h2 className="text-2xl sm:text-3xl font-serif text-heritage-green mb-6">
-                Join Us in Growing Something Beautiful
-              </h2>
-              <p className="text-stone/80 mb-8">
-                Whether you're a long-time Witta resident, former Green Harvest customer, 
-                or someone who shares our vision for community-led regenerative agriculture, 
-                there's a place for you at The Harvest.
+          <div className="hand-drawn-line" style={{ width: '200px' }} />
+
+          {/* Main Description */}
+          <div style={{ textAlign: 'center', marginBottom: '50px' }}>
+            <p style={{
+              fontSize: '1.1rem',
+              color: '#4A4A4A',
+              lineHeight: '1.7',
+              maxWidth: '600px',
+              margin: '0 auto'
+            }}>
+              Join us as this special place becomes a thriving community where everyone is welcome, 
+              food is grown and enjoyed, and connections flourish between all of us.
+            </p>
+          </div>
+
+          <div className="hand-drawn-line" style={{ width: '150px' }} />
+
+          {/* Information Sections */}
+          <div style={{ marginBottom: '40px' }}>
+            <div style={{
+              backgroundColor: 'rgba(139, 90, 60, 0.05)',
+              border: '1px solid #D4C4A8',
+              borderRadius: '8px',
+              padding: '30px',
+              marginBottom: '25px'
+            }}>
+              <h3 style={{
+                fontFamily: "'EB Garamond', serif",
+                color: '#3A4D1C',
+                fontSize: '1.4rem',
+                marginBottom: '15px',
+                textAlign: 'center',
+                fontWeight: 500
+              }}>
+                Our Vision
+              </h3>
+              <p style={{ 
+                color: '#4A4A4A', 
+                lineHeight: '1.7',
+                textAlign: 'center',
+                fontSize: '1rem'
+              }}>
+                A regenerative community space that honors the past while growing toward the future. 
+                We're building a place where therapeutic gardens heal, shared meals connect neighbors, 
+                and sustainable practices inspire the next generation.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a 
-                  href="/get-involved" 
-                  className="px-6 py-3 bg-heritage-green text-cream rounded hover:bg-heritage-green/90 transition-colors"
-                >
-                  Get Involved
-                </a>
-                <a 
-                  href="/visit" 
-                  className="px-6 py-3 border border-heritage-green text-heritage-green rounded hover:bg-heritage-green/5 transition-colors"
-                >
-                  Plan Your Visit
-                </a>
-                <a 
-                  href="tel:+61424054113" 
-                  className="px-6 py-3 bg-warm-soil text-cream rounded hover:bg-warm-soil/90 transition-colors"
-                >
-                  Call: 0424 054 113
-                </a>
+            </div>
+
+            <div style={{
+              backgroundColor: 'rgba(139, 90, 60, 0.05)',
+              border: '1px solid #D4C4A8',
+              borderRadius: '8px',
+              padding: '30px',
+              marginBottom: '25px'
+            }}>
+              <h3 style={{
+                fontFamily: "'EB Garamond', serif",
+                color: '#3A4D1C',
+                fontSize: '1.4rem',
+                marginBottom: '15px',
+                textAlign: 'center',
+                fontWeight: 500
+              }}>
+                What's Growing
+              </h3>
+              <p style={{ 
+                color: '#4A4A4A', 
+                lineHeight: '1.7',
+                textAlign: 'center',
+                fontSize: '1rem'
+              }}>
+                Therapeutic horticulture programs, farm-to-table dining experiences, community workshops, 
+                youth education initiatives, and spaces for celebration and connection. All rooted in 
+                regenerative agriculture and slow living principles.
+              </p>
+            </div>
+
+            <div style={{
+              backgroundColor: 'rgba(139, 90, 60, 0.05)',
+              border: '1px solid #D4C4A8',
+              borderRadius: '8px',
+              padding: '30px',
+              marginBottom: '25px'
+            }}>
+              <h3 style={{
+                fontFamily: "'EB Garamond', serif",
+                color: '#3A4D1C',
+                fontSize: '1.4rem',
+                marginBottom: '15px',
+                textAlign: 'center',
+                fontWeight: 500
+              }}>
+                Timeline
+              </h3>
+              <p style={{ 
+                color: '#4A4A4A', 
+                lineHeight: '1.7',
+                textAlign: 'center',
+                fontSize: '1rem'
+              }}>
+                <strong>Now - March 2025:</strong> Community consultation and design<br />
+                <strong>April 2025:</strong> Garden development begins<br />
+                <strong>Late 2025:</strong> First programs launch<br />
+                <strong>2026:</strong> Full community hub opening
+              </p>
+            </div>
+          </div>
+
+          <div className="hand-drawn-line" style={{ width: '120px' }} />
+
+          {/* Call to Action */}
+          <div style={{ 
+            textAlign: 'center',
+            marginBottom: '40px'
+          }}>
+            <p style={{
+              fontSize: '1.1rem',
+              color: '#4A4A4A',
+              lineHeight: '1.7',
+              marginBottom: '30px'
+            }}>
+              Find more information, ask a question<br />
+              or get involved.
+            </p>
+            
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+              gap: '20px',
+              maxWidth: '600px',
+              margin: '0 auto'
+            }}>
+              <div style={{
+                backgroundColor: 'rgba(107, 124, 90, 0.08)',
+                border: '1px solid #D4C4A8',
+                borderRadius: '6px',
+                padding: '20px 15px',
+                textAlign: 'center'
+              }}>
+                <h4 style={{ 
+                  color: '#3A4D1C', 
+                  marginBottom: '8px',
+                  fontSize: '1.1rem',
+                  fontWeight: 500
+                }}>
+                  Volunteer
+                </h4>
+                <p style={{ 
+                  fontSize: '0.9rem', 
+                  color: '#6B7C5A',
+                  lineHeight: '1.4'
+                }}>
+                  Help shape the gardens
+                </p>
               </div>
-            </motion.div>
+              
+              <div style={{
+                backgroundColor: 'rgba(107, 124, 90, 0.08)',
+                border: '1px solid #D4C4A8',
+                borderRadius: '6px',
+                padding: '20px 15px',
+                textAlign: 'center'
+              }}>
+                <h4 style={{ 
+                  color: '#3A4D1C', 
+                  marginBottom: '8px',
+                  fontSize: '1.1rem',
+                  fontWeight: 500
+                }}>
+                  Share Ideas
+                </h4>
+                <p style={{ 
+                  fontSize: '0.9rem', 
+                  color: '#6B7C5A',
+                  lineHeight: '1.4'
+                }}>
+                  Your vision matters
+                </p>
+              </div>
+              
+              <div style={{
+                backgroundColor: 'rgba(107, 124, 90, 0.08)',
+                border: '1px solid #D4C4A8',
+                borderRadius: '6px',
+                padding: '20px 15px',
+                textAlign: 'center'
+              }}>
+                <h4 style={{ 
+                  color: '#3A4D1C', 
+                  marginBottom: '8px',
+                  fontSize: '1.1rem',
+                  fontWeight: 500
+                }}>
+                  Partner
+                </h4>
+                <p style={{ 
+                  fontSize: '0.9rem', 
+                  color: '#6B7C5A',
+                  lineHeight: '1.4'
+                }}>
+                  Collaborate with us
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
 
-      {/* Footer */}
-      <footer className="bg-heritage-green text-cream py-16">
-        <div className="container-custom">
-          <div className="grid md:grid-cols-3 gap-8">
-            <div>
-              <h3 className="font-serif text-xl mb-4">Visit Us</h3>
-              <p className="text-cream/80 text-sm">
-                9 Gumland Drive<br />
-                Witta, QLD 4552<br />
-                Sunshine Coast Hinterland
-              </p>
-            </div>
-            <div>
-              <h3 className="font-serif text-xl mb-4">Connect</h3>
-              <p className="text-cream/80 text-sm">
-                Community meetings every<br />
-                Wednesday at sunset<br />
-                All welcome
-              </p>
-            </div>
-            <div>
-              <h3 className="font-serif text-xl mb-4">Partners</h3>
-              <p className="text-cream/80 text-sm">
-                Soil to Supper<br />
-                A Curious Tractor<br />
-                Local community groups
-              </p>
-            </div>
+          <div className="hand-drawn-line" style={{ width: '180px' }} />
+
+          {/* Contact Form */}
+          <div style={{ marginBottom: '30px' }}>
+            <h2 style={{
+              fontFamily: "'EB Garamond', serif",
+              color: '#3A4D1C',
+              fontSize: '1.6rem',
+              textAlign: 'center',
+              marginBottom: '25px',
+              fontWeight: 500
+            }}>
+              Connect With Us
+            </h2>
+            {showSuccess && (
+              <div id="success-message" style={{
+                background: 'rgba(58, 77, 28, 0.1)',
+                color: '#3A4D1C',
+                padding: '15px',
+                borderRadius: '6px',
+                marginBottom: '20px',
+                textAlign: 'center',
+                border: '1px solid #D4C4A8'
+              }}>
+                Thank you for your message! We'll be in touch soon.
+              </div>
+            )}
+            <form onSubmit={handleSubmit}>
+              <div style={{ marginBottom: '20px' }}>
+                <label style={{
+                  display: 'block',
+                  color: '#3A4D1C',
+                  fontWeight: 500,
+                  marginBottom: '8px',
+                  fontSize: '1rem'
+                }}>
+                  Your Name
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  style={{
+                    width: '100%',
+                    padding: '12px',
+                    border: '1px solid #D4C4A8',
+                    borderRadius: '6px',
+                    fontFamily: "'Crimson Text', serif",
+                    fontSize: '1rem',
+                    boxSizing: 'border-box',
+                    backgroundColor: '#FAF8F5'
+                  }}
+                />
+              </div>
+              
+              <div style={{ marginBottom: '20px' }}>
+                <label style={{
+                  display: 'block',
+                  color: '#3A4D1C',
+                  fontWeight: 500,
+                  marginBottom: '8px',
+                  fontSize: '1rem'
+                }}>
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  style={{
+                    width: '100%',
+                    padding: '12px',
+                    border: '1px solid #D4C4A8',
+                    borderRadius: '6px',
+                    fontFamily: "'Crimson Text', serif",
+                    fontSize: '1rem',
+                    boxSizing: 'border-box',
+                    backgroundColor: '#FAF8F5'
+                  }}
+                />
+              </div>
+              
+              <div style={{ marginBottom: '20px' }}>
+                <label style={{
+                  display: 'block',
+                  color: '#3A4D1C',
+                  fontWeight: 500,
+                  marginBottom: '8px',
+                  fontSize: '1rem'
+                }}>
+                  I'm Interested In
+                </label>
+                <select
+                  name="interest"
+                  value={formData.interest}
+                  onChange={handleChange}
+                  style={{
+                    width: '100%',
+                    padding: '12px',
+                    border: '1px solid #D4C4A8',
+                    borderRadius: '6px',
+                    fontFamily: "'Crimson Text', serif",
+                    fontSize: '1rem',
+                    boxSizing: 'border-box',
+                    backgroundColor: '#FAF8F5'
+                  }}
+                >
+                  <option>Volunteering</option>
+                  <option>Workshops & Events</option>
+                  <option>Partnership Opportunities</option>
+                  <option>Updates & Newsletter</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              
+              <div style={{ marginBottom: '25px' }}>
+                <label style={{
+                  display: 'block',
+                  color: '#3A4D1C',
+                  fontWeight: 500,
+                  marginBottom: '8px',
+                  fontSize: '1rem'
+                }}>
+                  Message (Optional)
+                </label>
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  rows={4}
+                  style={{
+                    width: '100%',
+                    padding: '12px',
+                    border: '1px solid #D4C4A8',
+                    borderRadius: '6px',
+                    fontFamily: "'Crimson Text', serif",
+                    fontSize: '1rem',
+                    boxSizing: 'border-box',
+                    resize: 'vertical',
+                    backgroundColor: '#FAF8F5'
+                  }}
+                />
+              </div>
+              
+              <div style={{ textAlign: 'center' }}>
+                <button
+                  type="submit"
+                  style={{
+                    background: '#B8945A',
+                    color: '#F7F4F0',
+                    padding: '12px 30px',
+                    border: '1px solid #8B5A3C',
+                    borderRadius: '6px',
+                    fontSize: '1rem',
+                    fontWeight: 500,
+                    cursor: 'pointer',
+                    transition: 'all 0.3s ease',
+                    fontFamily: "'Crimson Text', serif"
+                  }}
+                  onMouseOver={(e) => {
+                    e.currentTarget.style.background = '#8B5A3C'
+                    e.currentTarget.style.color = '#F7F4F0'
+                  }}
+                  onMouseOut={(e) => {
+                    e.currentTarget.style.background = '#B8945A'
+                    e.currentTarget.style.color = '#F7F4F0'
+                  }}
+                >
+                  Send Message
+                </button>
+              </div>
+            </form>
           </div>
-          <div className="mt-12 pt-8 border-t border-cream/20 text-center">
-            <p className="text-cream/60 text-sm">
-              © 2025 The Harvest. Honoring Green Harvest's organic legacy since 1993.
+
+          <div className="hand-drawn-line" style={{ width: '100px' }} />
+
+          {/* Bottom Text */}
+          <div style={{ textAlign: 'center', marginTop: '30px' }}>
+            <p style={{
+              fontSize: '1rem',
+              color: '#6B7C5A',
+              fontStyle: 'italic',
+              marginBottom: '15px'
+            }}>
+              Join us in creating something beautiful together.
+            </p>
+            <p style={{
+              fontSize: '0.9rem',
+              color: '#8B5A3C',
+              marginBottom: '5px'
+            }}>
+              <strong>The Harvest Community Hub</strong>
+            </p>
+            <p style={{
+              fontSize: '0.9rem',
+              color: '#8B5A3C'
+            }}>
+              Former Green Harvest Site • Witta, Queensland
             </p>
           </div>
         </div>
-      </footer>
+      </div>
     </main>
   )
 }
