@@ -14,8 +14,8 @@ export default function Home() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     
-    // Replace YOUR_FORM_ID with the actual form ID from Formspree
-    const FORMSPREE_FORM_ID = 'YOUR_FORM_ID' // Get this from formspree.io after setup
+    // Formspree form ID for hi@theharvestwitta.com.au
+    const FORMSPREE_FORM_ID = 'xrblbqnw'
     
     try {
       const response = await fetch(`https://formspree.io/f/${FORMSPREE_FORM_ID}`, {
