@@ -11,17 +11,43 @@ export default function Home() {
   })
   const [showSuccess, setShowSuccess] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setShowSuccess(true)
-    setFormData({ name: '', email: '', interest: 'Volunteering', message: '' })
-    // Scroll to success message
-    setTimeout(() => {
-      const successElement = document.getElementById('success-message')
-      if (successElement) {
-        successElement.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    
+    // Replace YOUR_FORM_ID with the actual form ID from Formspree
+    const FORMSPREE_FORM_ID = 'YOUR_FORM_ID' // Get this from formspree.io after setup
+    
+    try {
+      const response = await fetch(`https://formspree.io/f/${FORMSPREE_FORM_ID}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          interest: formData.interest,
+          message: formData.message,
+          _subject: `New contact from The Harvest: ${formData.name}`,
+        }),
+      })
+
+      if (response.ok) {
+        setShowSuccess(true)
+        setFormData({ name: '', email: '', interest: 'Volunteering', message: '' })
+        setTimeout(() => {
+          const successElement = document.getElementById('success-message')
+          if (successElement) {
+            successElement.scrollIntoView({ behavior: 'smooth', block: 'center' })
+          }
+        }, 100)
+      } else {
+        alert('There was an error sending your message. Please try again.')
       }
-    }, 100)
+    } catch (error) {
+      console.error('Form submission error:', error)
+      alert('There was an error sending your message. Please try again.')
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -617,9 +643,34 @@ export default function Home() {
             </p>
             <p style={{
               fontSize: '0.9rem',
-              color: '#8B5A3C'
+              color: '#8B5A3C',
+              marginBottom: '10px'
             }}>
               Former Green Harvest Site • Witta, Queensland
+            </p>
+            <p style={{
+              fontSize: '0.9rem',
+              color: '#3A4D1C',
+              marginBottom: '0'
+            }}>
+              <a 
+                href="mailto:hi@theharvestwitta.com.au"
+                style={{
+                  color: '#3A4D1C',
+                  textDecoration: 'none',
+                  borderBottom: '1px solid #3A4D1C'
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.color = '#8B5A3C'
+                  e.currentTarget.style.borderBottomColor = '#8B5A3C'
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.color = '#3A4D1C'
+                  e.currentTarget.style.borderBottomColor = '#3A4D1C'
+                }}
+              >
+                hi@theharvestwitta.com.au
+              </a>
             </p>
           </div>
         </div>
