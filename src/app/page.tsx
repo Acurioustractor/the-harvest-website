@@ -310,8 +310,7 @@ export default function Home() {
                 fontSize: '1rem'
               }}>
                 Therapeutic horticulture programs, farm-to-table dining experiences, community workshops, 
-                youth education initiatives, and spaces for celebration and connection. All rooted in 
-                regenerative agriculture and slow living principles.
+                youth education initiatives, and spaces for celebration and connection. All rooted in a connection with nature and slow living principles.
               </p>
             </div>
 
@@ -338,10 +337,10 @@ export default function Home() {
                 textAlign: 'center',
                 fontSize: '1rem'
               }}>
-                <strong>Now - March 2025:</strong> Community consultation and design<br />
-                <strong>April 2025:</strong> Garden development begins<br />
-                <strong>Late 2025:</strong> First programs launch<br />
-                <strong>2026:</strong> Full community hub opening
+                <strong>July 2025:</strong> Community consultation and garden design<br />
+                <strong>August 2025:</strong> Garden development begins<br />
+                <strong>January 2026:</strong> Garden opening and first programs launch<br />
+                <strong>Late 2026:</strong> Full community hub opening
               </p>
             </div>
           </div>
