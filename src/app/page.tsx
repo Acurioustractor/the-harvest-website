@@ -13,12 +13,10 @@ export default function Home() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    
-    // Formspree form ID for hi@theharvestwitta.com.au
-    const FORMSPREE_FORM_ID = 'xrblbqnw'
-    
+
     try {
-      const response = await fetch(`https://formspree.io/f/${FORMSPREE_FORM_ID}`, {
+      // Submit to our GHL integration API
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -28,11 +26,12 @@ export default function Home() {
           email: formData.email,
           interest: formData.interest,
           message: formData.message,
-          _subject: `New contact from The Harvest: ${formData.name}`,
         }),
       })
 
-      if (response.ok) {
+      const data = await response.json()
+
+      if (response.ok && data.success) {
         setShowSuccess(true)
         setFormData({ name: '', email: '', interest: 'Volunteering', message: '' })
         setTimeout(() => {
@@ -42,7 +41,8 @@ export default function Home() {
           }
         }, 100)
       } else {
-        alert('There was an error sending your message. Please try again.')
+        console.error('Form submission failed:', data)
+        alert(data.error || 'There was an error sending your message. Please try again.')
       }
     } catch (error) {
       console.error('Form submission error:', error)
@@ -557,6 +557,9 @@ export default function Home() {
                   <option>Volunteering</option>
                   <option>Workshops & Events</option>
                   <option>Partnership Opportunities</option>
+                  <option>Tenant/Vendor Opportunity</option>
+                  <option>Pop-up Event Space</option>
+                  <option>Witta Business Collaboration</option>
                   <option>Updates & Newsletter</option>
                   <option>Other</option>
                 </select>

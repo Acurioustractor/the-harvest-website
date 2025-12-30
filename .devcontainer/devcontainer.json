@@ -1,0 +1,19 @@
+{
+  "name": "the-harvest",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/app",
+  "postCreateCommand": "npm install",
+  "forwardPorts": [3000],
+  "remoteEnv": { 
+    "IN_DOCKER": "1" 
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  }
+}

@@ -1,0 +1,208 @@
+# Docker-Always Development Rules
+
+## Project Conventions
+
+This project follows a **Docker-first development approach**. All development, testing, and local runs MUST happen inside Docker containers. No exceptions.
+
+## Key Principles
+
+1. **Never run anything on the host machine** - All commands must be executed inside Docker containers
+2. **Use the Makefile** - All common operations have Make targets. Use `make help` to see available commands
+3. **Environment variables** - All configuration happens through `.env` files, never hardcode values
+4. **Volume mounts for development** - Source code is mounted as volumes for hot-reloading
+
+## Development Workflow
+
+### Starting Development
+```bash
+# First time setup
+cp .env.example .env
+make build
+
+# Start development
+make up
+
+# View logs
+make logs
+
+# Access container shell
+make shell
+```
+
+### Running Commands
+```bash
+# Wrong - running on host
+npm install some-package
+python manage.py migrate
+go test ./...
+
+# Correct - running in container
+make shell
+# Then inside container:
+npm install some-package
+python manage.py migrate
+go test ./...
+
+# Or directly:
+docker compose exec app npm install some-package
+docker compose exec app python manage.py migrate
+docker compose exec app go test ./...
+```
+
+## File Structure Rules
+
+1. **Docker configuration** stays in project root:
+   - `Dockerfile` - Multi-stage build supporting dev/prod
+   - `docker-compose.yml` - Development environment
+   - `docker-compose.prod.yml` - Production overrides (if needed)
+   - `.dockerignore` - Keep images lean
+
+2. **Environment files**:
+   - `.env.example` - Template with all variables documented
+   - `.env` - Local configuration (git-ignored)
+   - `.env.test` - Test environment (if needed)
+
+3. **Scripts**:
+   - `docker-entrypoint.sh` - Container initialization
+   - `scripts/` - Additional automation scripts
+
+## Code Style for Docker
+
+### Dockerfile Best Practices
+- Always use multi-stage builds
+- Run as non-root user (UID 1000)
+- Use specific version tags, not `:latest`
+- Order layers from least to most frequently changing
+- Combine RUN commands to reduce layers
+
+### Docker Compose Conventions
+- Use version 3.9 or higher
+- Always specify container_name
+- Use named volumes for persistent data
+- Use .env for all configuration
+- Include healthchecks for all services
+
+### Environment Variables
+- Prefix with APP_ for application config
+- Use DATABASE_URL format for connections
+- Document all variables in .env.example
+- Never commit .env files
+
+## Common Operations
+
+### Adding Dependencies
+```bash
+# Node.js
+make shell
+npm install package-name
+# Rebuild to update image
+make build
+
+# Python
+make shell
+pip install package-name
+pip freeze > requirements.txt
+make build
+
+# Go
+make shell
+go get package-name
+go mod tidy
+make build
+```
+
+### Database Operations
+```bash
+# Run migrations
+make shell
+# Then run your migration command
+
+# Access database
+make db-shell
+```
+
+### Testing
+```bash
+# Run tests in container
+make test
+
+# Run specific tests
+docker compose exec app npm test -- specific-test
+docker compose exec app pytest tests/specific_test.py
+```
+
+## Port Conventions
+- 3000-3999: Frontend applications
+- 4000-4999: Backend APIs
+- 5000-5999: Admin/internal tools
+- 5432: PostgreSQL
+- 6379: Redis
+- 9000-9999: Debugging/profiling
+
+## Debugging
+
+### Container Issues
+```bash
+# Check container status
+docker compose ps
+
+# View detailed logs
+docker compose logs -f app
+
+# Inspect container
+docker compose exec app sh
+```
+
+### Performance on macOS
+- Use named volumes for node_modules/vendor directories
+- Enable `CHOKIDAR_USEPOLLING=true` for file watching
+- Consider using `:delegated` mount option for source code
+
+## Security Rules
+
+1. Never run containers as root in production
+2. Don't expose unnecessary ports
+3. Use .dockerignore to exclude sensitive files
+4. Scan images for vulnerabilities: `docker scan image-name`
+5. Keep base images updated
+
+## Git Workflow
+
+### Pre-commit Checks
+All commits should be made from inside the container to ensure consistency:
+```bash
+make shell
+git add .
+git commit -m "message"
+```
+
+### Branch Naming
+- `feature/` - New features
+- `fix/` - Bug fixes
+- `chore/` - Maintenance tasks
+- `docker/` - Docker-specific changes
+
+## Troubleshooting
+
+### "Port already in use"
+```bash
+# Find process using port
+lsof -i :3000
+# Kill it or change port in docker-compose.yml
+```
+
+### "File changes not detected"
+- Ensure `CHOKIDAR_USEPOLLING=true` is set
+- Check volume mounts in docker-compose.yml
+- Restart containers: `make restart`
+
+### "Permission denied"
+- Check file ownership: files should be owned by UID 1000
+- Run `make fix-permissions` if available
+- Ensure USER directive in Dockerfile
+
+## Remember
+
+**Every command runs in Docker. No exceptions.**
+
+If you're typing a command that isn't `make`, `docker`, or `docker compose`, you're probably doing it wrong. Get into the container first with `make shell`.

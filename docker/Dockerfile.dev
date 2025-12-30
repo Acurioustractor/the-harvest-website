@@ -1,0 +1,23 @@
+# docker/Dockerfile.dev
+FROM node:20-alpine
+
+# Create a non-root user (so files on the host aren't root-owned)
+# Use a different GID/UID if 1000 is already taken
+RUN addgroup -g 1001 app && adduser -D -G app -u 1001 app
+USER app
+
+# Set workdir inside the container
+WORKDIR /app
+
+# Copy package manifests, install deps
+COPY --chown=app:app package*.json ./
+RUN npm install
+
+# Copy the rest of the source for dev (volume will override on run)
+COPY --chown=app:app . .
+
+# Expose the dev port
+EXPOSE 3000
+
+# Default command (hot-reload)
+CMD ["npm", "run", "dev"]
